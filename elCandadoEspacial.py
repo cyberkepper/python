@@ -1,5 +1,12 @@
 from colorama import Fore, Style
-import time, random
+import time, random, signal, sys
+
+def signal_handler(sig, frame):
+    print('[*] Saliendo ...!\n')
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
+
 
 titulo = "ESCAPE ROOM: EL CANDADO ESPACIAL"
 print(titulo)
