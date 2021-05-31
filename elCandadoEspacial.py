@@ -1,3 +1,4 @@
+from colorama import Fore, Style
 import time, random
 
 titulo = "ESCAPE ROOM: EL CANDADO ESPACIAL"
@@ -5,12 +6,12 @@ print(titulo)
 print(len(titulo)*"-")
 
 print(
-    "Dos hermanos, Alex y Elena, se encuentran en una sala mágica\n"
+    Fore.YELLOW+"Dos hermanos, Alex y Elena, se encuentran en una sala mágica\n"
     "uno de los dos tiene que conseguir escapar y liberar al otro\n"
     "los dos se encuentran retenidos por unos escudos mágicos\n"
     "pero la clave para desactivar el escudo de uno de ellos esta oculta por algún lugar de la sala\n"
     "es hora de tomar decisiones, conseguir la clave e investigar los primeros pasos para iniciar la aventura\n"
-    "en ocaciones habra que trabajar en equipo para resolver los enigmas\n"
+    "en ocaciones habra que trabajar en equipo para resolver los enigmas\n"+Style.RESET_ALL
 )
 jugador = input(
     "Elige tu jugador\n"
