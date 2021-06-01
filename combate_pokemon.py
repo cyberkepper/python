@@ -5,10 +5,10 @@ print(len(titulo)*"=")
 print(titulo)
 print(len(titulo)*"=")
 
-vida_inicial_pikachu = 80
+VIDA_INICIAL_PIKACHU = 80
 vida_actual_pikachu = 80
 
-vida_inicial_squirtle = 90
+VIDA_INICIAL_SQUIRTLE = 90
 vida_actual_squirtle = 90
 
 while vida_actual_pikachu > 0 or vida_actual_squirtle > 0:
@@ -41,8 +41,8 @@ while vida_actual_pikachu > 0 or vida_actual_squirtle > 0:
         print("Squirtle ataca con burbuja")
         vida_actual_pikachu -= 9
 
-    print("La vida de Pikachu es: [{}] {}".format(int(round((vida_actual_pikachu * 10) / vida_inicial_pikachu, 10)) * "#", vida_actual_pikachu))
-    print("la vida de Squirtle es: [{}] {}".format(int(round((vida_actual_squirtle * 10) / vida_inicial_squirtle, 10)) * "#", vida_actual_squirtle))
+    print("La vida de Pikachu es: [{}] {}".format(int(round((vida_actual_pikachu * 10) / VIDA_INICIAL_PIKACHU, 10)) * "#", vida_actual_pikachu))
+    print("la vida de Squirtle es: [{}] {}".format(int(round((vida_actual_squirtle * 10) / VIDA_INICIAL_SQUIRTLE, 10)) * "#", vida_actual_squirtle))
 
 if vida_actual_pikachu > vida_actual_squirtle:
     print("Pikachu Wins!!")
