@@ -1,9 +1,12 @@
 from random import randint
+import os
 
 titulo = "Bienvenidos a Combate Pokémon"
 print(len(titulo)*"=")
 print(titulo)
 print(len(titulo)*"=")
+
+TAMANO_BARRA_VIDA = 20
 
 VIDA_INICIAL_PIKACHU = 80
 vida_actual_pikachu = 80
@@ -11,9 +14,14 @@ vida_actual_pikachu = 80
 VIDA_INICIAL_SQUIRTLE = 90
 vida_actual_squirtle = 90
 
-while vida_actual_pikachu > 0 or vida_actual_squirtle > 0:
+while vida_actual_pikachu >= 0 or vida_actual_squirtle >= 0:
     
     # Turno de Pikachu
+    if os.name == "posix":
+        os.system ("clear")
+    elif os.name == "ce" or os.name == "nt" or os.name == "dos":
+        os.system ("cls")
+
     print("Turno Pikachu\n")
     ataque_pikachu = randint(1,2)
     if ataque_pikachu == 1:
@@ -23,6 +31,11 @@ while vida_actual_pikachu > 0 or vida_actual_squirtle > 0:
     else:
         print("Pikachu ataca con onda de trueno")
         vida_actual_squirtle -= 11
+
+    print("La vida de Pikachu es: [{}] [{}/{}]".format(int(round((vida_actual_pikachu * TAMANO_BARRA_VIDA) / VIDA_INICIAL_PIKACHU, 10)) * "#", vida_actual_pikachu, VIDA_INICIAL_PIKACHU))
+    print("la vida de Squirtle es: [{}] [{}/{}]".format(int(round((vida_actual_squirtle * TAMANO_BARRA_VIDA) / VIDA_INICIAL_SQUIRTLE, 10)) * "#", vida_actual_squirtle, VIDA_INICIAL_SQUIRTLE))
+
+    print("\n---------------\n")
 
     # Turno de Squirtle
     print("Turno Squirtle")
@@ -41,10 +54,14 @@ while vida_actual_pikachu > 0 or vida_actual_squirtle > 0:
         print("Squirtle ataca con burbuja")
         vida_actual_pikachu -= 9
 
-    print("La vida de Pikachu es: [{}] {}".format(int(round((vida_actual_pikachu * 10) / VIDA_INICIAL_PIKACHU, 10)) * "#", vida_actual_pikachu))
-    print("la vida de Squirtle es: [{}] {}".format(int(round((vida_actual_squirtle * 10) / VIDA_INICIAL_SQUIRTLE, 10)) * "#", vida_actual_squirtle))
+    print("La vida de Pikachu es: [{}] {}".format(int(round((vida_actual_pikachu * TAMANO_BARRA_VIDA) / VIDA_INICIAL_PIKACHU, 10)) * "#", vida_actual_pikachu))
+    print("la vida de Squirtle es: [{}] {}".format(int(round((vida_actual_squirtle * TAMANO_BARRA_VIDA) / VIDA_INICIAL_SQUIRTLE, 10)) * "#", vida_actual_squirtle))
 
-    if vida_actual_pikachu > vida_actual_squirtle:
-        print("Pikachu Wins!!")
-    else:
-        print("Squirtle Wins!!")    
+    print("Pulsa ENTER para continuar ...\n")
+
+if vida_actual_pikachu > vida_actual_squirtle and vida_actual_squirtle < 0:
+    print("Pikachu Wins!!")
+    vida_actual_squirtle = 0 
+elif vida_actual_squirtle > vida_actual_pikachu and vida_actual_pikachu < 0:
+    print("Squirtle Wins!!")
+    vida_actual_pikachu = 0 
