@@ -41,7 +41,7 @@ while vida_actual_pikachu >= 0 or vida_actual_squirtle >= 0:
     print("Turno Squirtle")
 
     ataque_squirtle = None
-    while ataque_squirtle != "P" and ataque_squirtle != "A" and ataque_squirtle != "B":
+    while ataque_squirtle not in ["P", "A", "B", "N"]:
         ataque_squirtle = input("¿Qué ataque deseas realizar? [P]lacaje, Pistola [A]gua, [B]urbuja: ")
 
     if ataque_squirtle == "P":
@@ -53,15 +53,18 @@ while vida_actual_pikachu >= 0 or vida_actual_squirtle >= 0:
     elif ataque_squirtle == "B":
         print("Squirtle ataca con burbuja")
         vida_actual_pikachu -= 9
+    elif ataque_squirtle == "N":
+        print("Squirtle hace nada ...")
 
     print("La vida de Pikachu es: [{}] {}".format(int(round((vida_actual_pikachu * TAMANO_BARRA_VIDA) / VIDA_INICIAL_PIKACHU, 10)) * "#", vida_actual_pikachu))
     print("la vida de Squirtle es: [{}] {}".format(int(round((vida_actual_squirtle * TAMANO_BARRA_VIDA) / VIDA_INICIAL_SQUIRTLE, 10)) * "#", vida_actual_squirtle))
 
     print("Pulsa ENTER para continuar ...\n")
 
-if vida_actual_pikachu > vida_actual_squirtle and vida_actual_squirtle < 0:
+if vida_actual_squirtle < 0:
     print("Pikachu Wins!!")
     vida_actual_squirtle = 0 
-elif vida_actual_squirtle > vida_actual_pikachu and vida_actual_pikachu < 0:
+    
+if vida_actual_pikachu < 0:
     print("Squirtle Wins!!")
     vida_actual_pikachu = 0 
