@@ -14,7 +14,7 @@ vida_actual_pikachu = 80
 VIDA_INICIAL_SQUIRTLE = 90
 vida_actual_squirtle = 90
 
-while vida_actual_pikachu >= 0 or vida_actual_squirtle >= 0:
+while vida_actual_pikachu > 0 or vida_actual_squirtle > 0:
     
     # Turno de Pikachu
     if os.name == "posix":
@@ -35,6 +35,14 @@ while vida_actual_pikachu >= 0 or vida_actual_squirtle >= 0:
     print("La vida de Pikachu es: [{}] [{}/{}]".format(int(round((vida_actual_pikachu * TAMANO_BARRA_VIDA) / VIDA_INICIAL_PIKACHU, 10)) * "#", vida_actual_pikachu, VIDA_INICIAL_PIKACHU))
     print("la vida de Squirtle es: [{}] [{}/{}]".format(int(round((vida_actual_squirtle * TAMANO_BARRA_VIDA) / VIDA_INICIAL_SQUIRTLE, 10)) * "#", vida_actual_squirtle, VIDA_INICIAL_SQUIRTLE))
 
+    if vida_actual_squirtle < 0:
+        print("Pikachu Wins!!")
+        vida_actual_squirtle = 0 
+        exit()
+    if vida_actual_pikachu < 0:
+        print("Squirtle Wins!!")
+        vida_actual_pikachu = 0 
+        exit()
     print("\n---------------\n")
 
     # Turno de Squirtle
@@ -61,10 +69,3 @@ while vida_actual_pikachu >= 0 or vida_actual_squirtle >= 0:
 
     print("Pulsa ENTER para continuar ...\n")
 
-if vida_actual_squirtle < 0:
-    print("Pikachu Wins!!")
-    vida_actual_squirtle = 0 
-    
-if vida_actual_pikachu < 0:
-    print("Squirtle Wins!!")
-    vida_actual_pikachu = 0 
