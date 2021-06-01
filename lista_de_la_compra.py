@@ -13,7 +13,7 @@ print(len(titulo)*"=")
 carrito_de_la_compra = []
 agregar = None
 
-while agregar != ["Q"]:
+while agregar != ["Q"]: #while True: siempre se ejecutaría hasta poner un break, el pass continuaría
 
     articulo = input("¿Qué desea comprar? ")
     agregar = input("¿Seguro que desea agregar {} al carrito de la compra (S/N) [Q] para salir \n".format(articulo))
