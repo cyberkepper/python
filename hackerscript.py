@@ -19,7 +19,7 @@ def main():
     connection = sqlite3.connect(history_path)
     cursor = connection.cursor()
     cursor.execute("SELECT title, last_visit_time, url FROM urls ORDER BY last_visit_time DESC")
-    urls = cursor,fetchall()
+    urls = cursor.fetchall()
     print(urls)
 
 if __name__ == "__main__":
