@@ -42,7 +42,7 @@ def check_history_and_scare_user(hacker_file, chrome_history):
         results = re.findall("https://twitter.com/([A-Za-z0-9]+)$", item[2]) # Capturamos lo que hay dentro de ()
         if results and results[0] not in ["notifications", "home"]:
             profiles_visited.append(results[0])
-    hacker_file.write("He visto que has estado husmeando en lso perfiles de {}...".format(", ".join(profiles_visited)))
+    hacker_file.write("He visto que has estado husmeando en los perfiles de {}...".format(", ".join(profiles_visited)))
 
 def main():
 
